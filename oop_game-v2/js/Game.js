@@ -25,7 +25,7 @@ createPhrases() {
                       new Phrase('Cry Over Spilled Milk')                  
               ];
     return phrases;
-}
+};
 /**
 * Selects random phrase from phrases property
 * @return {Object} Phrase object chosen to be used
@@ -34,5 +34,14 @@ getRandomPhrase() {
     const i = Math.floor(Math.random() * this.phrases.length);
     const randomPhrase = this.phrases[i]
     return randomPhrase;
+};
+/**
+* Begins game by selecting a random phrase and displaying it to user
+*/
+startGame() {
+  const overlay = document.getElementById('overlay');
+  overlay.style.visibility = "hidden";
+  this.activePhrase = this.getRandomPhrase();
+  this.activePhrase.addPhraseToDisplay();
 };
 };

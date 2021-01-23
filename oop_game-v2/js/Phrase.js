@@ -11,7 +11,7 @@ class Phrase {
 * Display phrase on game board
 */
 addPhraseToDisplay() {
-  const letterArr = game.getRandomPhrase().phrase.split('');
+  const letterArr = this.phrase.split('');
   let html = '<div id="phrase" class="section">' +
                  '<ul>'
     let li = [];
