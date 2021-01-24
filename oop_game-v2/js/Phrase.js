@@ -57,7 +57,6 @@ checkLetter(letter) {
 showMatchedLetter(letter) {
     const letterLi = document.getElementsByClassName('hide letter ' + `${letter}`);
   
-    console.log(letterLi);
     for (let i = 0; i < letterLi.length; i += 1) {
       letterLi[i].classList.replace('hide', 'show');
      };

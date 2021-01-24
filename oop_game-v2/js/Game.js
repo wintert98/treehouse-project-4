@@ -32,7 +32,7 @@ createPhrases() {
 */
 getRandomPhrase() {
     const i = Math.floor(Math.random() * this.phrases.length);
-    const randomPhrase = this.phrases[i]
+    const randomPhrase = this.phrases[i];
     return randomPhrase;
 };
 /**
@@ -80,7 +80,6 @@ removeLife() {
   let heart = document.querySelector("img[src='images/liveHeart.png']");
   heart.src="images/lostHeart.png";
   this.missed += 1;
-  console.log(this.missed);
   if (this.missed === 5) {
     this.gameOver()
   }
@@ -103,4 +102,24 @@ gameOver(gameWon) {
     h1.innerHTML = htmlLose
   }
 };
+/**
+* Handles onscreen keyboard button clicks
+* @param (HTMLButtonElement) button - The clicked button element
+*/
+handleInteraction(button) {
+  const btn = button.innerHTML;
+  if (this.activePhrase.checkLetter(btn)) {
+    this.activePhrase.showMatchedLetter(btn)
+    button.disabled = true;
+    button.className ="chosen";
+    // checks for game over and win
+    if(this.checkForWin()) {
+    this.gameOver(this.checkForWin());
+    }
+  } else {
+    button.disabled = true;
+    button.className ="wrong";
+    this.removeLife();
+  }
+  };
 };
