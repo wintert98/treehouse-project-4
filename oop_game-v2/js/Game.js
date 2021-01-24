@@ -44,4 +44,49 @@ startGame() {
   this.activePhrase = this.getRandomPhrase();
   this.activePhrase.addPhraseToDisplay();
 };
+
+/**
+* Checks for winning move
+* @return {boolean} True if game has been won, false if game wasn't
+won
+*/
+checkForWin() {
+  const letterArr = this.activePhrase.phrase.split('')
+  const letterLi = document.getElementsByClassName('show');
+  console.log(letterArr);
+  let check1 = 0;
+  let check2 = 0;
+  letterArr.forEach( i => {
+    if (i !== " ") {
+     check1 += 1;
+    }
+  });
+  for (let i = 0; i < letterLi.length; i += 1) {
+    if (letterLi[i].className = 'show') {
+      check2 += 1;
+    }
+  };
+   console.log(check1);
+   console.log(check2);
+  if (check1 === check2) {
+    return true;
+  } else {
+    return false;
+  }
+};
+/**
+* Increases the value of the missed property
+* Removes a life from the scoreboard
+* Checks if player has remaining lives and ends game if player is out
+*/
+removeLife() {
+
+};
+/**
+* Displays game over message
+* @param {boolean} gameWon - Whether or not the user won the game
+*/
+gameOver(gameWon) {
+
+};
 };
