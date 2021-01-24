@@ -11,7 +11,7 @@ let buttons = document.getElementsByClassName('key')
 startBtn.addEventListener('click',(e) => {
    game = new Game();
    game.startGame(); 
-   // Starting game from win or lose screen starts new game
+   // Starting game from win or lose screen refreshes page and starts a new game
    if (overlay.className === "win"|| overlay.className === "lose") {
       window.location.hash = 'reload';
       window.location.reload();
@@ -32,3 +32,4 @@ for(let i = 0; i < buttons.length; i++) {
     game.handleInteraction(button) 
    });
 }
+
