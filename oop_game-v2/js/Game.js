@@ -53,7 +53,6 @@ won
 checkForWin() {
   const letterArr = this.activePhrase.phrase.split('')
   const letterLi = document.getElementsByClassName('show');
-  console.log(letterArr);
   let check1 = 0;
   let check2 = 0;
   letterArr.forEach( i => {
@@ -66,8 +65,6 @@ checkForWin() {
       check2 += 1;
     }
   };
-   console.log(check1);
-   console.log(check2);
   if (check1 === check2) {
     return true;
   } else {
@@ -80,13 +77,30 @@ checkForWin() {
 * Checks if player has remaining lives and ends game if player is out
 */
 removeLife() {
-
+  let heart = document.querySelector("img[src='images/liveHeart.png']");
+  heart.src="images/lostHeart.png";
+  this.missed += 1;
+  console.log(this.missed);
+  if (this.missed === 5) {
+    this.gameOver()
+  }
 };
 /**
 * Displays game over message
 * @param {boolean} gameWon - Whether or not the user won the game
 */
 gameOver(gameWon) {
-
+  const overlay = document.getElementById('overlay');
+  const h1 = document.getElementById('game-over-message');
+  const htmlWin = '<h1>Great Job! You Won!</h1>'
+  const htmlLose = '<h1>Sorry, better luck next time.</h1>'
+  overlay.style.visibility = "visible";
+  if (gameWon) {
+    overlay.className = "win"
+    h1.innerHTML = htmlWin
+  } else {
+    overlay.className = "lose"
+    h1.innerHTML = htmlLose
+  }
 };
 };
