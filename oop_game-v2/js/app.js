@@ -17,7 +17,7 @@ startBtn.addEventListener('click',(e) => {
       window.location.reload();
    }
   });
-//When the document has loaded, call the function to start new game from win or lose screen
+//When the document has loaded after page refresh, call the function to start new game from win or lose screen
 document.addEventListener("DOMContentLoaded", function(event) { 
     if(window.location.hash == "#reload") {
         game = new Game();
