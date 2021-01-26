@@ -53,6 +53,8 @@ checkLetter(letter) {
 /**
 * Displays passed letter on screen after a match is found
 * @param (string) letter - Letter to display
+   Note: I used 3 for loops because only 1 or 2 for loops would only partilly reveal all of the selected
+   letter especially when the phrase had more than 3 or 4 of the same letter
 */
 showMatchedLetter(letter) {
     const letterLi = document.getElementsByClassName('hide letter ' + `${letter}`);
