@@ -11,13 +11,13 @@ let buttons = document.getElementsByClassName('key')
 startBtn.addEventListener('click',(e) => {
    game = new Game();
    game.startGame(); 
-   // Starting game from win or lose screen refreshes page and starts a new game
+   // Starting game from win or lose screen refreshes page, resetting game data 
    if (overlay.className === "win"|| overlay.className === "lose") {
       window.location.hash = 'reload';
       window.location.reload();
    }
   });
-//When the document has loaded after page refresh, call the function to start new game from win or lose screen
+//When the document has loaded after page refresh, call the function to start a new game with new random phrase from win or lose screen
 document.addEventListener("DOMContentLoaded", function(e) { 
     if(window.location.hash == "#reload") {
         game = new Game();
