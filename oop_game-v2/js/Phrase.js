@@ -67,6 +67,6 @@ showMatchedLetter(letter) {
      }; 
      for (let i = 0; i < letterLi.length; i += 1) {
       letterLi[0].classList.replace('hide', 'show');
-     };
+     }; 
 };
 };
